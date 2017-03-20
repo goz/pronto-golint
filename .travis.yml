@@ -1,0 +1,15 @@
+sudo: false
+language: go
+go:
+  - 1.7.x
+  - 1.8.x
+  - master
+env:
+  - PRONTO_GOLINT_EXECUTABLE="$HOME/gopath/bin/golint"
+before_install:
+  - rvm install 2.3.1
+  - gem install bundler -v 1.14.5
+install:
+  - go get -u github.com/golang/lint
+  - bundle install
+script: bundle exec rake
